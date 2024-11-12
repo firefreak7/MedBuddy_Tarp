@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">MedBuddy</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="uploaded_image">Uploaded Image</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="predict">Predict</string>
+    <string name="no_image">No image selected</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

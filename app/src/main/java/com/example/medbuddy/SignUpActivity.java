@@ -1,11 +1,7 @@
 package com.example.medbuddy;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -47,14 +43,12 @@ public class SignUpActivity extends AppCompatActivity {
         otherCheckbox = findViewById(R.id.other_checkbox);
         loginRedirectText = findViewById(R.id.loginRedirectText);
         signupButton = findViewById(R.id.signup_button);
-
         // Initialize Firebase Auth and Database Reference
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("users");
 
         signupButton.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View view) {
                 String name = signupName.getText().toString();
@@ -76,13 +70,23 @@ public class SignUpActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser firebaseUser = auth.getCurrentUser();
                         if (firebaseUser != null) {
-                            String userId = firebaseUser.getUid();
-                            Log.d(TAG, "userririr: "+userId);
+                            // Use name as the path for the node
+                            DatabaseReference userRef = reference.child(name); // Use name as the child node
                             HelperClass helperClass = new HelperClass(name, age, sex, weight, height);
-                            reference.child(userId).setValue(helperClass);
 
-                            Toast.makeText(SignUpActivity.this, "Sign-up successful!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                            // Write to the database and listen for success/failure
+                            userRef.setValue(helperClass)
+                                    .addOnCompleteListener(updateTask -> {
+                                        if (updateTask.isSuccessful()) {
+                                            Toast.makeText(SignUpActivity.this, "Sign-up successful!", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                                        } else {
+                                            Toast.makeText(SignUpActivity.this, "Failed to update database!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(SignUpActivity.this, "Database error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    });
                         }
                     } else {
                         Toast.makeText(SignUpActivity.this, "Sign-up failed! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -90,6 +94,9 @@ public class SignUpActivity extends AppCompatActivity {
                 });
             }
         });
+
+
+
 
         // Redirect to Login Activity
         loginRedirectText.setOnClickListener(view -> {

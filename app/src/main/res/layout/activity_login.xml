@@ -13,73 +13,77 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center_horizontal"
-            android:padding="24dp"
+            android:padding="32dp"
             android:background="@drawable/custom_edittext">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Login"
-                android:textSize="36sp"
+                android:textSize="32sp"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:letterSpacing="0.05"
                 android:textColor="@color/lavender"/>
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
                 android:id="@+id/login_email"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
                 android:background="@drawable/custom_edittext"
-                android:layout_marginTop="40dp"
-                android:padding="8dp"
+                android:layout_marginTop="32dp"
+                android:padding="16dp"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_person_pin_24"
-                android:drawablePadding="8dp"
-                android:textColor="@color/black"/>
+                android:drawablePadding="12dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
                 android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
                 android:background="@drawable/custom_edittext"
-                android:layout_marginTop="20dp"
-                android:padding="8dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/baseline_lock_24"
-                android:drawablePadding="8dp"
-                android:textColor="@color/black"/>
+                android:drawablePadding="12dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Login"
                 android:id="@+id/login_button"
-                android:textSize="18sp"
-                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Login"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@color/lavender"
-                app:cornerRadius = "20dp"/>
+                app:cornerRadius="16dp"/>
 
             <TextView
+                android:id="@+id/signupRedirectText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/signupRedirectText"
                 android:text="New user? Sign Up"
                 android:layout_gravity="center"
-                android:padding="8dp"
-                android:layout_marginTop="10dp"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/lavender"
-                android:textSize="18sp"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
