@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1022371985356",
+    "project_id": "medbuddy-7ca27",
+    "storage_bucket": "medbuddy-7ca27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022371985356:android:147df97d2b3b3145500f69",
+        "android_client_info": {
+          "package_name": "com.example.medbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmKHdj96lKOGNaP1hhEbX5ZKAfLxueUXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_scan"
+        android:icon="@drawable/scan_icon"
+        android:title="Scan" />
+    <item
+        android:id="@+id/nav_chatbot"
+        android:icon="@drawable/chatbot_icon"
+        android:title="Chatbot" />
+    <item
+        android:id="@+id/nav_inventory"
+        android:icon="@drawable/inventory_icon"
+        android:title="Inventory" />
+</menu>
