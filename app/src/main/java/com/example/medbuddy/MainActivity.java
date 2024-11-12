@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             // Handle Inventory navigation
             // For example, replace the fragment
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new InventoryFragment())
+                    .replace(R.id.fragment_container, new YourMedicine())
                     .commit();
             return true;
         } else {
