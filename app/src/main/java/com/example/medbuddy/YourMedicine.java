@@ -32,13 +32,12 @@ public class YourMedicine extends Fragment {
         };
         View.OnClickListener viewmedlisten = v -> {
             Toast.makeText(getActivity(), "Navigating to Add Medicine", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(getActivity(), AddMedicine.class);
-//            startActivity(intent);
+            openViewMedFragment();
+
         };
         View.OnClickListener scanmedlisten = v -> {
             Toast.makeText(getActivity(), "Navigating to Add Medicine", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(getActivity(), AddMedicine.class);
-//            startActivity(intent);
+
         };
 
         cardAddMedicine.setOnClickListener(cardClickListener);
@@ -51,6 +50,13 @@ public class YourMedicine extends Fragment {
         // Begin a fragment transaction to replace this fragment with AddMedicineFragment
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, new AddMed_fragment()); // Replace R.id.fragment_container with your container's ID
+        transaction.addToBackStack(null); // Add to back stack to allow back navigation
+        transaction.commit();
+    }
+    private void openViewMedFragment() {
+        // Begin a fragment transaction to replace this fragment with AddMedicineFragment
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new Viewmed_fragment()); // Replace R.id.fragment_container with your container's ID
         transaction.addToBackStack(null); // Add to back stack to allow back navigation
         transaction.commit();
     }

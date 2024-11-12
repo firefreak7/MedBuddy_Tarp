@@ -1,7 +1,11 @@
 package com.example.medbuddy;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -50,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
         reference = database.getReference("users");
 
         signupButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View view) {
                 String name = signupName.getText().toString();
@@ -72,6 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                         FirebaseUser firebaseUser = auth.getCurrentUser();
                         if (firebaseUser != null) {
                             String userId = firebaseUser.getUid();
+                            Log.d(TAG, "userririr: "+userId);
                             HelperClass helperClass = new HelperClass(name, age, sex, weight, height);
                             reference.child(userId).setValue(helperClass);
 
