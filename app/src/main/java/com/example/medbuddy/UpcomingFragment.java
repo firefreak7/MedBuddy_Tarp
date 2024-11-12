@@ -59,15 +59,15 @@ public class UpcomingFragment extends Fragment {
                         if (medicine != null) {
                             medicineList.add(medicine);
                             // Schedule notifications for each time slot
-                            if (medicine.getMorningTime() != null) {
-                                NotificationUtils.scheduleNotification(getContext(), medicine.getMedicineName(), medicine.getMorningTime(), 101); // 101 can be a unique request code
-                            }
-                            if (medicine.getAfternoonTime() != null) {
-                                NotificationUtils.scheduleNotification(getContext(), medicine.getMedicineName(), medicine.getAfternoonTime(), 102);
-                            }
-                            if (medicine.getEveningTime() != null) {
-                                NotificationUtils.scheduleNotification(getContext(), medicine.getMedicineName(), medicine.getEveningTime(), 103);
-                            }
+//                            if (medicine.getMorningTime() != null) {
+//                                NotificationUtils.scheduleNotification(getContext(), medicine.getMedicineName(), medicine.getMorningTime(), 101); // 101 can be a unique request code
+//                            }
+//                            if (medicine.getAfternoonTime() != null) {
+//                                NotificationUtils.scheduleNotification(getContext(), medicine.getMedicineName(), medicine.getAfternoonTime(), 102);
+//                            }
+//                            if (medicine.getEveningTime() != null) {
+//                                NotificationUtils.scheduleNotification(getContext(), medicine.getMedicineName(), medicine.getEveningTime(), 103);
+//                            }
                         }
                     }
                     adapter.notifyDataSetChanged();

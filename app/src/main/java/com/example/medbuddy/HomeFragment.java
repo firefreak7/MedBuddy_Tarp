@@ -1,6 +1,10 @@
 package com.example.medbuddy;
+import static androidx.fragment.app.FragmentManager.TAG;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,44 +72,42 @@ public class HomeFragment extends Fragment {
     }
 
     // Method to fetch the username from Firebase Realtime Database
+    @SuppressLint("RestrictedApi")
     private void fetchUsernameFromFirebase(String userEmail) {
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                boolean userFound = false;
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser != null) {
+            // Get the email of the current user
+            String ema = firebaseUser.getEmail();
 
-                // Loop through all users
-                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    String email = userSnapshot.child("email").getValue(String.class);
-                    if (email != null && email.equals(userEmail)) {
-                        // If email matches, fetch the username
-                        String username = userSnapshot.child("username").getValue(String.class);
+            if (userEmail != null) {
+                // Replace '.' with ',' to create the Firebase path for the user
+                String userKey = userEmail.replace(".", ",");
 
-                        if (username != null) {
-                            hellotxt.setText("Hello");
-                            name.setText(username);
-                        } else {
-                            hellotxt.setText("Hello");
-                            name.setText("User,");
-                        }
-                        userFound = true;
-                        break;  // Exit loop after finding the correct user
+                // Reference to the user's data in Firebase Realtime Database
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userKey);
+
+                // Fetch the current user's name from the database
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        // Assuming the name is stored under the "name" key in the database
+                        String userName = dataSnapshot.child("name").getValue(String.class);
+
+                        // Log the user's name
+                        name.setText(userName);
+                        Log.d("TAG", "fetchUsernameFromFirebase: User Name: " + userName);
                     }
-                }
 
-                // If no matching user is found
-                if (!userFound) {
-                    hellotxt.setText("Hello");
-                    name.setText("User,");
-                }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle the error (e.g., if the user data cannot be fetched)
+                        Log.e("TAG", "Error fetching user data", databaseError.toException());
+                    }
+                });
+            } else {
+                Log.e("TAG", "User is not authenticated.");
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle possible database errors
-                hellotxt.setText("Hello");
-                name.setText("Error fetching username.");
-            }
-        });
+            Log.d(TAG, "fetchUsernameFromFirebase: " + userEmail);
+        }
     }
 }

@@ -519,6 +519,179 @@ public class ScanFragment extends Fragment {
                         "Do not use for more than 5 days continuously.\n" +
                         "In case of excess pain, visit a physician. Bayer"
         );
+
+        medData.put("Atchol-10", "Product Name: Atorvastatin 10 mg Tablet\n" +
+                "Composition: Each film-coated tablet contains:\n" +
+                "    Atorvastatin Calcium IP equivalent to Atorvastatin 10 mg\n" +
+                "    Excipients\n" +
+                "    Colours: Ferric Oxide NF Red and Titanium Dioxide IP\n" +
+                "Dosage: As directed by the physician.\n" +
+                "Warnings and Precautions:\n" +
+                "    Contact a physician in case of any symptoms of liver problems like unusual fatigue, weakness, loss of appetite, upper belly pain, dark colored urine, yellowing of the skin or whites of the eyes, memory loss, confusion, and increased blood sugar.\n" +
+                "    This is a Schedule H prescription drug. Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n" +
+                "Storage: Store protected from moisture at a temperature not exceeding 30°C. Keep out of reach of children.\n" +
+                "Manufacturer: ARISTO Pharmaceuticals Private Limited, Plot Nos. 2040-46, N.H.-10, Baghey Khola, Po. Majhitar, East Sikkim - 737 136.\n"
+        );
+
+
+        medData.put("Acton-OR",
+                "Tablet Type: Paracetamol Sustained Release Tablets\n" +
+                        "Brand Name: Acton-OR\n" +
+                        "Manufacturer: Apex Laboratories Private Limited\n" +
+                        "Location: Alathur, Tamil Nadu, India\n" +
+                        "Each uncoated bilayered tablet contains:\n" +
+                        "Paracetamol LP 300 mg (As immediate release)\n" +
+                        "Paracetamol LP 700 mg (As sustained release)\n" +
+                        "Dosage: As directed by the Physician\n" +
+                        "Directions for use: Do not chew or crush the tablet. Swallow as a whole.\n" +
+                        "Maximum daily dose: 4000 mg\n" +
+                        "Should not be used with other Paracetamol containing products.\n" +
+                        "Warning: Overdose may be injurious to liver.\n" +
+                        "Store at temperatures not exceeding 30°C.\n" +
+                        "Protect from light and moisture.\n" +
+                        "KEEP OUT OF REACH OF CHILDREN.\n" +
+                        "Manufacturer: Apex Laboratories Private Limited, B-23 SIDCO Pharmaceutical Complex, Alathur-603110, Tamil Nadu, India"
+        );
+
+        medData.put("Azgil", "Product Name: Azgil 500 mg\n" +
+                "Composition: Each film coated tablet contains:\n" +
+                "Azithromycin IP equivalent to Anhydrous Azithromycin 500 mg\n" +
+                "Colours: Yellow Oxide of Iron\n" +
+                "Dosage: As directed by the Physician.\n" +
+                "Storage: Store protected from light & moisture at a temperature not exceeding 30°C. Keep all medicines out of reach of children.\n" +
+                "Manufacturer: Pure & Cure Healthcare Pvt. Ltd., Plot No. 26A, 27-30, Sector-8A, SIDCUL, Haridwar-249 403, Uttarakhand.\n");
+        medData.put("Benz", "Product Name: Benz\n" +
+                "Composition: Each soft gelatin capsule contains:\n" +
+                "Benzonatate USP 100 mg\n" +
+                "Excipients\n" +
+                "Dosage: For adults and children 10 years of age and older: 1 capsule every 8 hours or as directed by the physician.\n" +
+                "For children below 10 years of age: Consult a physician.\n" +
+                "Warnings: Do not chew, swallow the capsule whole with water. Do not cut, chew or break the capsule before taking it. To be taken as per the recommended dose by the prescribing physician.\n" +
+                "Storage: Store at 25°C, in a cool, dry, and dark place. Keep out of reach of children.\n" +
+                "Manufacturer: Genova Laboratories (India) Pvt. Ltd., C-125, MIDC Area, Mahape, Navi Mumbai - 400 710, India");
+
+
+
+        medData.put("Cipla", "Product Name: Ciplox 500 mg\n" +
+                "Composition: Each film-coated tablet contains:\n" +
+                "Ciprofloxacin Hydrochloride IP 500 mg\n" +
+                "Colours: Titanium Dioxide IP\n" +
+                "Dosage: As directed by the Physician.\n" +
+                "Warnings: This drug may cause low blood sugar and mental health-related side effects.\n" +
+                "Caution: Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n" +
+                "Storage: Protect from light and moisture. Keep out of reach of children.\n" +
+                "Manufacturer: Cipla Ltd., Tarpin Block, Rorathang, Sikkim 737 133 India.");
+
+        medData.put("Cyclopam", "Product Name: Cyclopam Fast Relief\n" +
+                "Composition: Each uncoated tablet contains:\n" +
+                "Dicyclomine Hydrochloride IP 20 mg\n" +
+                "Paracetamol IP 500 mg\n" +
+                "Dosage: As directed by the Physician.\n" +
+                "Storage: Store in a cool and dry place. Protect from light and moisture.\n" +
+                "Warnings: Taking more than 4000 mg of Paracetamol in 24 hours may cause serious liver damage or allergic reactions.\n"+
+                "Caution: Not to be sold by retail without the prescription of a Registered Medical Practitioner.The drug should be used only under the supervision of a qualified doctor and should not be used with extreme caution with individuals and patients under the age of 6 months.\n" +
+                "Manufacturer: Indoco Remedies Ltd., Village Katha, Baddi, Tehsil Nalagarh, Distt. Solan (HP) 173 205, Mumbai 400 098");
+
+        medData.put("Dolo-650", "Product Name: Dolo-650\n" +
+                "Composition: Each uncoated tablet contains:\n" +
+                "Paracetamol IP 650 mg\n" +
+                "Dosage: As directed by the Physician.\n" +
+                "Storage: Store in a dry & dark place, at a temperature not exceeding 30°C. Overdose may be injurious to Liver.\n" +
+                "Manufacturer: Micro Labs Limited, Mamring, Namthang Road, South Sikkim-737 132\n");
+        medData.put("Emeset-8", "Product Name: Emeset-8\n" +
+                "Composition: Each film-coated tablet contains:\n" +
+                "Ondansetron Hydrochloride IP equivalent to Ondansetron 8 mg\n" +
+                "Colour: Titanium Dioxide IP\n" +
+                "Dosage: As directed by the Physician.\n" +
+                "Warnings: Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n" +
+                "Storage: Store in a cool, dry place. Protect from light.\n" +
+                "Manufacturer: Cipla Ltd., Tarpin Block, Rorathang, Sikkim 737 133 India.\n"
+        );
+
+        medData.put("Florita", "Composition:\n" +
+                "Lactobacillus acidophilus USA 34 - 2 billion cfu\n" +
+                "Lactobacillus rhamnosus 1853 - 2 billion cfu\n" +
+                "Lactobacillus reuteri UBERO-87 - 2 billion cfu\n" +
+                "Lactobacillus plantarum 68LP-4006 - 1 billion cfu\n" +
+                "Lactobacillus casei 054642 - 1 billion cfu\n" +
+                "Lactobacillus fermentum 0868-55 - 1 billion cfu\n" +
+                "Bifidobacterium bifidum 08058 - 1 billion cfu\n" +
+                "Total count: 10 billion cfu\n" +
+                "Fructo Oligosaccharides (FOS) - 100 mg\n\n" +
+                "Manufacturer: Unique Biotech Limited\n" +
+                "Manufacturer Address: Plot No: 2, Phase-II, Kolthur, Shamirpet, Telangana, India - 500078\n" +
+                "Storage: Store between 2°C to 8°C. Protect from light and moisture. Do not freeze.\n" +
+                "Dosage: As directed by the physician.\n"
+        );
+
+        medData.put("Levoflox-500", "Composition:\n" +
+                "Levofloxacin Hemihydrate IP equivalent to Levofloxacin 500 mg\n" +
+                "Color: Red Oxide of Iron & Titanium Dioxide IP\n" +
+                "Dosage: As directed by the Physician\n" +
+                "Storage: Protect from light & moisture. Keep out of reach of children.\n" +
+                "Manufacturer: Cipla Ltd., Tarpin block, Rorathang, Sikkim 737 133 India.\n" +
+                "Warning: This drug may cause low blood sugar and mental health-related side effects. Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n");
+
+        medData.put("Loparet", "Composition:\n" +
+                "Loperamide Hydrochloride I.P. 2 mg\n" +
+                "Excipients\n" +
+                "Dosage: As directed by the Physician\n" +
+                "Storage: Store in a cool, dry & dark place.\n" +
+                "Marketed by: RETORT LABORATORIES, 21/2 Mc Nichols Road, Chubar Chawl, Mumbai-600 001, India\n" +
+                "Warning: Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n");
+
+        medData.put("Metrogyl 400", "Composition:\n" +
+                "Metronidazole IP 400 mg\n" +
+                "Excipients\n" +
+                "Color: Sunset Yellow FCF\n" +
+                "Dosage: As directed by the Physician\n" +
+                "Storage: Protect from light & moisture.\n" +
+                "Manufacturer: J.B. CHEMICALS & PHARMACEUTICALS LTD., At: PF-23, GIDC Industrial Estate, Sanand-II, Ahmedabad-382 110.\n" +
+                "Warning: SCHEDULE H PRESCRIPTION DRUG. Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n");
+
+        medData.put("MPTOL 500", "Composition:\n" +
+                "Paracetamol IP 500 mg\n" +
+                "Dosage: As directed by the Physician\n" +
+                "Storage: Store protected from light & moisture, at a temperature not exceeding 30°C. Keep out of reach of children.\n" +
+                "Marketed By: MedePlus Health Services" +
+                "Manufacturer: Pure & Cure Healthcare Pvt. Ltd. (A subsidiary of Akums Drugs & Pharmaceuticals Ltd.), Plot No. 26A, 27-30, Sector-8A, I.I.E., SIDCUL, Ranipur, Haridwar-249 403, Uttarakhand\n" +
+                "Warning: CAUTION: Overdose of Paracetamol may be injurious to liver.\n"
+        );
+
+        medData.put("Nitroroin 100", "Composition:\n" +
+                "Nitrofurantoin IP 100 mg\n" +
+                "Excipients\n" +
+                "Color: Titanium Dioxide\n" +
+                "Dosage: As directed by the Physician\n" +
+                "Storage: Store in a cool, dry, and dark place. Protect from light and moisture.\n" +
+                "Manufacturer: Morepen Laboratories Ltd., Plot No. 10, 11, Sector 68, I.E., SIDCUL, Haridwar-249403, Uttarakhand (INDIA)\n" +
+                "Warning: SCHEDULE H PRESCRIPTION DRUG. Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n");
+
+        medData.put("Norflox-TZ RF", "Composition:\n" +
+                "Norfloxacin IP 400 mg\n" +
+                "Tinidazole IP 600 mg\n" +
+                "Colors: Titanium Dioxide IP and Quinoline Yellow WS\n" +
+                "Dosage: As directed by the Physician\n" +
+                "Storage: Store in a dry place at a temperature not exceeding 25°C. Keep out of reach of children.\n" +
+                "Manufacturer: Cipla, Mid. under the technical guidance of Cipla Ltd. by Pinnacle Lite Science Private Limited, Khasra No. 1328-1330, Village Manpura, Tehsil-Baddi, Distt. Solan (HP)-174101, India\n" +
+                "Warning: This drug may cause low blood sugar and mental health-related side effects. SCHEDULE PRESCRIPTION DRUG. Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n"
+        );
+
+        medData.put("Paracip-500", "Composition:\n" +
+                "Paracetamol IP 500 mg\n" +
+                "Dosage: Adults: 500 mg to 1000 mg (1 to 2 tablets) upto a maximum of 4000 mg daily in divided doses or as directed by the physician.\n" +
+                "Storage: Store below 30°C. Protect from light & moisture. Keep out of reach of children.\n" +
+                "Manufacturer: HSN Biotech, Plot No. 40, Sector 6A, SIDCUL, Haridwar-249 403, Uttarakhand\n" +
+                "Marketed By: Cipla Ltd., Goregaon East, Mumbai-400 063, India\n");
+
+        medData.put("Repace 50", "Composition:\n" +
+                "Losartan Potassium IP 50 mg\n" +
+                "Excipients\n" +
+                "Color: Quinoline Yellow WS\n" +
+                "Dosage: As directed by the Physician\n" +
+                "Storage: Store at room temperature, protected from light and moisture.\n" +
+                "Manufacturer: Suo Pharma Laboratories Ltd., Plot No. 107-108, Namli Block, Panipool, East-Sikkim-737 135.\n" +
+                "Warning: SCHEDULE H PRESCRIPTION DRUG - CAUTION: Not to be sold by retail without the prescription of a Registered Medical Practitioner.\n");
         return view;
     }
 
@@ -546,7 +719,21 @@ public class ScanFragment extends Fragment {
         // Prepare the content with the image bytes
         Content content = new Content.Builder()
                 .addImage(image)
-                .addText("Please extract the text from this image. and can you find the correct table name from this dataset"+medData+"It might be possible that the tablet is not present in the dataset or the uploaded image is not a tablet itself. So extract text carefully and find the correct table name from this dataset.")
+                .addText("Please follow these instructions carefully:\n" +
+                        "\n" +
+                        "Extract Text from Image: Begin by thoroughly extracting any relevant text from the image provided.\n" +
+                        "Identify Medicine Name: Using the extracted text and cross-referencing it with the dataset"+medData+", identify the exact medicine name. Ensure the name is provided in ALL CAPS.\n" +
+                        "Response Format:\n" +
+                        "\n" +
+                        "Please respond with the following information:\n" +
+                        "\n" +
+                        "Medicine Name: <Exact Medicine Name in ALL CAPS>\n" +
+                        "Detailed Description of Uses: Provide a concise yet comprehensive description of the medicine's primary uses, including its intended purpose, common conditions it treats, and any key effects or benefits.\n" +
+                        "Example Response:\n" +
+                        "\n" +
+                        "Medicine Name: PARACETAMOL 500MG TABLET\n" +
+                        "Detailed Description of Uses: Paracetamol is a widely used pain reliever and fever reducer. It’s commonly prescribed for mild to moderate pain, such as headaches, muscle aches, and dental pain, as well as for reducing fever in colds and flu. It works by inhibiting certain chemical messengers in the brain that cause pain and fever.\n" +
+                        "Important Note: If the medicine cannot be identified in the dataset, or if the image content does not pertain to a medicine, please respond with: “Medicine not found or not applicable.")
                 .build();
 
         // Call the API to extract text
