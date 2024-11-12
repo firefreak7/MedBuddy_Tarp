@@ -1,98 +1,105 @@
 package com.example.medbuddy;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView profileName, profileEmail, profileUsername, profilePassword;
-    TextView titleName, titleUsername;
-    Button editProfile;
+    TextView nameTextView, ageTextView, sexTextView, heightTextView, weightTextView, emailTextView;
+    MaterialButton editProfileButton, logoutButton;
+    FirebaseAuth auth;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        profileName = findViewById(R.id.profileName);
-        profileEmail = findViewById(R.id.profileEmail);
-        profileUsername = findViewById(R.id.profileUsername);
-        profilePassword = findViewById(R.id.profilePassword);
-        titleName = findViewById(R.id.titleName);
-        titleUsername = findViewById(R.id.titleUsername);
-        editProfile = findViewById(R.id.editButton);
+        // Initialize views
+        nameTextView = findViewById(R.id.nameTextView);
+        ageTextView = findViewById(R.id.ageTextView);
+        sexTextView = findViewById(R.id.sexTextView);
+        heightTextView = findViewById(R.id.heightTextView);
+        weightTextView = findViewById(R.id.weightTextView);
+        emailTextView = findViewById(R.id.emailTextView);
+        editProfileButton = findViewById(R.id.editProfileButton);
+        logoutButton = findViewById(R.id.logoutButton);
 
-        showAllUserData();
+        // Initialize Firebase Auth and Database Reference
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
 
-        editProfile.setOnClickListener(new View.OnClickListener() {
+        if (currentUser != null) {
+            String email = currentUser.getEmail();
+            if (email != null) {
+                String emailKey = email.replace(".", ",");
+                reference = FirebaseDatabase.getInstance().getReference("users").child(emailKey);
+
+                // Fetch user details from database
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            String name = snapshot.child("name").getValue(String.class);
+                            String age = snapshot.child("age").getValue(String.class);
+                            String sex = snapshot.child("sex").getValue(String.class);
+                            String height = snapshot.child("height").getValue(String.class);
+                            String weight = snapshot.child("weight").getValue(String.class);
+
+                            // Populate the UI with fetched data
+                            nameTextView.setText(name);
+                            ageTextView.setText(age);
+                            sexTextView.setText(sex);
+                            heightTextView.setText(height);
+                            weightTextView.setText(weight);
+                            emailTextView.setText(email);
+                        } else {
+                            Toast.makeText(ProfileActivity.this, "User data not found", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(ProfileActivity.this, "Failed to fetch user data", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        } else {
+            Toast.makeText(this, "No authenticated user found", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+            finish();
+        }
+
+        // Set up button listeners
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                passUserData();
+            public void onClick(View v) {
+                // Implement the edit profile functionality
+                Toast.makeText(ProfileActivity.this, "Edit Profile clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
-    }
-
-    public void showAllUserData(){
-        Intent intent = getIntent();
-        String nameUser = intent.getStringExtra("name");
-        String emailUser = intent.getStringExtra("email");
-        String usernameUser = intent.getStringExtra("username");
-        String passwordUser = intent.getStringExtra("password");
-
-        titleName.setText(nameUser);
-        titleUsername.setText(usernameUser);
-        profileName.setText(nameUser);
-        profileEmail.setText(emailUser);
-        profileUsername.setText(usernameUser);
-        profilePassword.setText(passwordUser);
-    }
-
-    public void passUserData(){
-        String userUsername = profileUsername.getText().toString().trim();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        Query checkUserDatabase = reference.orderByChild("username").equalTo(userUsername);
-
-        checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if (snapshot.exists()){
-
-                    String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
-                    String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
-                    String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
-                    String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
-
-//                    Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-//
-//                    intent.putExtra("name", nameFromDB);
-//                    intent.putExtra("email", emailFromDB);
-//                    intent.putExtra("username", usernameFromDB);
-//                    intent.putExtra("password", passwordFromDB);
-//
-//                    startActivity(intent);
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onClick(View v) {
+                auth.signOut();
+                startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+                finish();
             }
         });
     }
