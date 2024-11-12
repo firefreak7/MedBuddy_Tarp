@@ -71,12 +71,23 @@ public class SignUpActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser firebaseUser = auth.getCurrentUser();
                         if (firebaseUser != null) {
-                            String userId = firebaseUser.getUid();
+                            // Use name as the path for the node
+                            DatabaseReference userRef = reference.child(name); // Use name as the child node
                             HelperClass helperClass = new HelperClass(name, age, sex, weight, height);
-                            reference.child(userId).setValue(helperClass);
 
-                            Toast.makeText(SignUpActivity.this, "Sign-up successful!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                            // Write to the database and listen for success/failure
+                            userRef.setValue(helperClass)
+                                    .addOnCompleteListener(updateTask -> {
+                                        if (updateTask.isSuccessful()) {
+                                            Toast.makeText(SignUpActivity.this, "Sign-up successful!", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                                        } else {
+                                            Toast.makeText(SignUpActivity.this, "Failed to update database!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(SignUpActivity.this, "Database error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    });
                         }
                     } else {
                         Toast.makeText(SignUpActivity.this, "Sign-up failed! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -84,6 +95,9 @@ public class SignUpActivity extends AppCompatActivity {
                 });
             }
         });
+
+
+
 
         // Redirect to Login Activity
         loginRedirectText.setOnClickListener(view -> {
