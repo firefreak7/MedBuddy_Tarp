@@ -13,141 +13,167 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center_horizontal"
-            android:padding="24dp"
+            android:padding="32dp"
             android:background="@drawable/custom_edittext">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:textSize="36sp"
+                android:textSize="32sp"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:letterSpacing="0.05"
                 android:textColor="@color/lavender"/>
 
             <EditText
                 android:id="@+id/signup_name"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
                 android:background="@drawable/custom_edittext"
-                android:layout_marginTop="40dp"
-                android:padding="8dp"
+                android:layout_marginTop="32dp"
+                android:padding="16dp"
                 android:hint="Name"
                 android:drawableLeft="@drawable/baseline_person_pin_24"
-                android:drawablePadding="8dp"
-                android:textColor="@color/black"/>
+                android:drawablePadding="12dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
             <EditText
                 android:id="@+id/signup_age"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
                 android:background="@drawable/custom_edittext"
-                android:layout_marginTop="20dp"
-                android:padding="8dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
                 android:hint="Age"
                 android:inputType="number"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gender"
                 android:textSize="16sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:gravity="center_vertical"
+                android:padding="8dp">
 
                 <CheckBox
                     android:id="@+id/male_checkbox"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Male"
+                    android:textSize="14sp"
                     android:textColor="@color/black"/>
 
                 <CheckBox
                     android:id="@+id/female_checkbox"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Female"
+                    android:textSize="14sp"
                     android:textColor="@color/black"/>
 
                 <CheckBox
                     android:id="@+id/other_checkbox"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Other"
+                    android:textSize="14sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/signup_weight"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/custom_edittext"
-                android:layout_marginTop="20dp"
-                android:padding="8dp"
-                android:hint="Weight (kg)"
-                android:inputType="numberDecimal"
-                android:textColor="@color/black"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
 
-            <EditText
-                android:id="@+id/signup_height"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/custom_edittext"
-                android:layout_marginTop="20dp"
-                android:padding="8dp"
-                android:hint="Height (cm)"
-                android:inputType="numberDecimal"
-                android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/signup_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_edittext"
+                    android:layout_marginEnd="8dp"
+                    android:padding="16dp"
+                    android:hint="Weight (kg)"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+                <EditText
+                    android:id="@+id/signup_height"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_edittext"
+                    android:layout_marginStart="8dp"
+                    android:padding="16dp"
+                    android:hint="Height (cm)"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/signup_email"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
                 android:background="@drawable/custom_edittext"
-                android:layout_marginTop="20dp"
-                android:padding="8dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_email_24"
-                android:drawablePadding="8dp"
-                android:textColor="@color/black"/>
+                android:drawablePadding="12dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
             <EditText
                 android:id="@+id/signup_password"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
                 android:background="@drawable/custom_edittext"
-                android:layout_marginTop="20dp"
-                android:padding="8dp"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/baseline_lock_24"
-                android:drawablePadding="8dp"
-                android:textColor="@color/black"/>
+                android:drawablePadding="12dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
             <Button
                 android:id="@+id/signup_button"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:text="Sign Up"
-                android:textSize="18sp"
-                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="@color/lavender"
-                app:cornerRadius="20dp"/>
+                app:cornerRadius="16dp"/>
 
             <TextView
                 android:id="@+id/loginRedirectText"
@@ -155,10 +181,10 @@
                 android:layout_height="wrap_content"
                 android:text="Already a user? Login"
                 android:layout_gravity="center"
-                android:padding="8dp"
-                android:layout_marginTop="10dp"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/lavender"
-                android:textSize="18sp"/>
+                android:textSize="16sp"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

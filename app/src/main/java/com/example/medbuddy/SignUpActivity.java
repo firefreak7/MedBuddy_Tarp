@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         otherCheckbox = findViewById(R.id.other_checkbox);
         loginRedirectText = findViewById(R.id.loginRedirectText);
         signupButton = findViewById(R.id.signup_button);
-
         // Initialize Firebase Auth and Database Reference
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
