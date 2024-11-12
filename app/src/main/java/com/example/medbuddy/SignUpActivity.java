@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
                 database = FirebaseDatabase.getInstance();
                 reference = database.getReference("users");
 
+//                add new line for test
                 String name = signupName.getText().toString();
                 String email = signupEmail.getText().toString();
                 String username = signupUsername.getText().toString();
