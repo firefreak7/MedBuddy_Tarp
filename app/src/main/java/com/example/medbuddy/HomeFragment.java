@@ -59,24 +59,10 @@ public class HomeFragment extends Fragment {
         });
 
         // Initialize TabLayout and ViewPager2
-        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
-        ViewPager2 viewPager = view.findViewById(R.id.view_pager);
-
-        // Set up the ViewPager with the adapter
-        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
-        viewPager.setAdapter(adapter);
-
-        // Link the TabLayout with the ViewPager using TabLayoutMediator
-        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
-            switch (position) {
-                case 0:
-                    tab.setText("Upcoming");
-                    break;
-                case 1:
-                    tab.setText("History");
-                    break;
-            }
-        }).attach();
+        // Directly load the UpcomingFragment into the container
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.container, new UpcomingFragment()) // Replace with UpcomingFragment
+                .commit();
 
         return view;
     }
