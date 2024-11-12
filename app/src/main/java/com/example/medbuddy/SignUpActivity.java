@@ -43,6 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
         otherCheckbox = findViewById(R.id.other_checkbox);
         loginRedirectText = findViewById(R.id.loginRedirectText);
         signupButton = findViewById(R.id.signup_button);
+
         // Initialize Firebase Auth and Database Reference
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -70,8 +71,9 @@ public class SignUpActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser firebaseUser = auth.getCurrentUser();
                         if (firebaseUser != null) {
-                            // Use name as the path for the node
-                            DatabaseReference userRef = reference.child(name); // Use name as the child node
+                            // Encode email to be used as a key
+                            String emailKey = email.replace(".", ",");
+                            DatabaseReference userRef = reference.child(emailKey); // Use email as the child node
                             HelperClass helperClass = new HelperClass(name, age, sex, weight, height);
 
                             // Write to the database and listen for success/failure
@@ -94,9 +96,6 @@ public class SignUpActivity extends AppCompatActivity {
                 });
             }
         });
-
-
-
 
         // Redirect to Login Activity
         loginRedirectText.setOnClickListener(view -> {

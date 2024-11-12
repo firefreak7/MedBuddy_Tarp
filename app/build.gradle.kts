@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation ("com.google.android.material:material:1.9.0")
+
     implementation ("androidx.viewpager2:viewpager2:1.1.0")
     implementation ("androidx.fragment:fragment:1.6.1")
     implementation(libs.constraintlayout)
