@@ -9,20 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.Objects;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    EditText loginUsername, loginPassword;
+    EditText loginEmail, loginPassword;
     Button loginButton;
     TextView signupRedirectText;
 
@@ -31,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loginUsername = findViewById(R.id.login_username);
+        loginEmail = findViewById(R.id.login_email);  // Updated to email field
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         signupRedirectText = findViewById(R.id.signupRedirectText);
@@ -40,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!validateUsername() | !validatePassword()) {
-
+                if (!validateEmail() | !validatePassword()) {
+                    // Validation failed
                 } else {
                     checkUser();
                 }
@@ -55,16 +49,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
-    public Boolean validateUsername() {
-        String val = loginUsername.getText().toString();
+    public Boolean validateEmail() {
+        String val = loginEmail.getText().toString();
         if (val.isEmpty()) {
-            loginUsername.setError("Username cannot be empty");
+            loginEmail.setError("Email cannot be empty");
             return false;
         } else {
-            loginUsername.setError(null);
+            loginEmail.setError(null);
             return true;
         }
     }
@@ -80,26 +73,25 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
     public void checkUser(){
-        String userUsername = loginUsername.getText().toString().trim();
+        String userEmail = loginEmail.getText().toString().trim();
         String userPassword = loginPassword.getText().toString().trim();
 
         // Use Firebase Auth to sign in with email and password
-        mAuth.signInWithEmailAndPassword(userUsername, userPassword)
+        mAuth.signInWithEmailAndPassword(userEmail, userPassword)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Sign-in successful
                         FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
 
-                        // Passing user data to MainActivity (optional)
+                        // Navigate to MainActivity
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                        intent.putExtra("name", user.getDisplayName());
-//                        intent.putExtra("email", user.getEmail());
-//                        intent.putExtra("uid", user.getUid());  // Firebase unique user ID
                         startActivity(intent);
                         finish(); // Close the login activity
                     } else {
+                        // Sign-in failed
+                        Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                         loginPassword.setError("Invalid email or password");
                         loginPassword.requestFocus();
                     }
